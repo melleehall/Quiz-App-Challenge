@@ -11,36 +11,36 @@
 <body>
     <div class="container">
         <header>
-            <h1 class="heading blue rounded-corner">Christmas Tunes Quiz</h1>
-            <ul class="score-question">
+            <h1 class="heading blue rounded-corner" role="banner">Christmas Tunes Quiz</h1>
+            <ul class="score-question rounded-corner">
                 <li> Score: <span class="js-score"> 0 </span> </li>
                 <li> Question: <span class="js-questionNum"> </span>/6 </li>
             </ul>
         </header>
-        <main class="main">
-            <section class="variable-content-container blue rounded-corner">
-                <div class="instructions rounded-corner">
+        <main class="main" role="main">
+            <section class="variable-content-container blue rounded-corner" role="region">
+                <section class="instructions rounded-corner">
                     <p> <br> It's the most wonderful time of the year!  Let's see how wonderful your knowledge of Christmas Tune Trivia is.  Press "START" to proceed through a series of six questions and learn fun facts along the way.</p>
                     <img src="QuizPhotos/DJSantaClaus.jpeg" alt="DJ Santa Claus" class="dj-santa">
-                </div>
+                </section>
                 <form class="questions rounded-corner"> <br> 
                 </form>
-                <div class='feedback'>
-                    <div class="feedback correct">
+                <section class='feedback'>
+                    <section class="feedback correct">
                         <img src="QuizPhotos/HappyTree.jpg" alt="happy Christmas tree" class="feedback-photo">
                         <p class='rounded-corner correctness'> Correct! </p>
-                    </div>
-                    <div class="feedback incorrect">
+                    </section>
+                    <section class="feedback incorrect">
                         <img src="QuizPhotos/SadTree.jpeg" alt="sad Christmas tree" class="feedback-photo">
                         <p class='rounded-corner correctness'> Incorrect! </p>
-                    </div>
+                    </section>
                     <p class="correct-answer rounded-corner"><span class="js-correct-answer"> The correct answer with explanation. </span></p>
-                </div>
-                <div class='rounded-corner final-view'>
+                </section>
+                <section class='rounded-corner final-view'>
                     <img src="QuizPhotos/SantaClausWithHeadphones.jpg" alt="Santa Claus wearing headphones" class="final-santa">
                     <p class="js-final-score"></p>
                     <p class="js-final-view"></p>
-                </div>
+                </section>
             </section>
             <section class=buttons>
                 <button role="button" type="button" class="button js-start-button blue rounded-corner"> START </button>

@@ -52,7 +52,10 @@ body {
     display: flex;
     justify-content: space-evenly;
     margin: 10px;
+    padding: 5px;
     font-size: 15px;
+    background-color: whitesmoke;
+    border: 1px darkblue solid;
 }
 
 /* below styling is for start view */
@@ -64,7 +67,7 @@ body {
 
 .variable-content-container, .button {
     color: white;
-    margin-top: 20px;
+    margin-top: 15px;
     justify-content: center;
 }
 

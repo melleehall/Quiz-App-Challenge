@@ -47,7 +47,7 @@ const STORE = [
         'All were written explicitly for use in plays',
         'All were made famous by Gene Autry',
         'All were written by a Jewish man.',
-        'All were criticized by Top 40 radio personality "Big Daddy" Tom Donahue for plagarism.'
+        'All were criticized by Top 40 radio personality "Big Daddy" Tom Donahue.'
       ],
       correctIndex: 
         2,
