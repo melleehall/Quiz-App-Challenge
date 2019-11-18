@@ -1,6 +1,5 @@
 'use strict';
 
-
 // Question and answer bank
 const STORE = [
   {
@@ -45,10 +44,10 @@ const STORE = [
   {
       question: '“Rudolph The Red-Nosed Reindeer,” “Rockin’ Around The Christmas Tree,” and “Holly Jolly Christmas” are three of the most famous Christmas songs.  Which interesting fact about them below is true?',
       answers: [
-        'All three songs were written explicitly for use in plays',
-        'All three songs were made famous by Gene Autry',
-        'All three songs were written by a Jewish man.',
-        'All three songs were originally criticized by Top 40 radio personality "Big Daddy" Tom Donahue for plagarism.'
+        'All were written explicitly for use in plays',
+        'All were made famous by Gene Autry',
+        'All were written by a Jewish man.',
+        'All were criticized by Top 40 radio personality "Big Daddy" Tom Donahue for plagarism.'
       ],
       correctIndex: 
         2,
