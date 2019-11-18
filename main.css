@@ -4,7 +4,7 @@
 
 /* styling for constant elements of quiz (Heading, background, and button) */
 html {
-    background-image: url('/Users/MelanieLee/Projects/Christmas-Tune-Quiz/QuizPhotos/snowflakes.jpeg');
+    background-image: url('../QuizPhotos/snowflakes.jpeg');
     background-repeat: repeat;
 }
 
