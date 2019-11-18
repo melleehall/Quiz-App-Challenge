@@ -188,8 +188,8 @@ function generateFinalRank () {
 function resetStats () {
   score = 0;
   questionNum = 0;
-  $('.score').text(0);
-  $('.questionNum').text(0);
+  $('.js-score').text(0);
+  $('.js-questionNum').text(0);
   console.log(`The score was reset to ${score}`);
 }
 
