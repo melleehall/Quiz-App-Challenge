@@ -105,7 +105,7 @@ let questionNum = 0;
 // Called when correct answer is submitted
 function updateScore () {
   score++;
-  $('.js-score').text(score);
+  $('.js-score').text(`${score} `);
   console.log(`updateScore ran and the score is ${score}`);
 }
 
