@@ -106,6 +106,7 @@ let questionNum = 0;
 function updateScore () {
   score++;
   $('.js-score').text(score);
+  console.log(`updateScore ran and the score is ${score}`);
 }
 
 // Called each time a new question is rendered
@@ -186,9 +187,10 @@ function generateFinalRank () {
 // Resets current score and question number to zero and displays them in the heading
 function resetStats () {
   score = 0;
-  questionNum= 0;
+  questionNum = 0;
   $('.score').text(0);
   $('.questionNum').text(0);
+  console.log(`The score was reset to ${score}`);
 }
 
 // Starts the quiz over by calling the functions that set score and question number to zero and display the start screen
