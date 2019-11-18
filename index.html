@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Christmas Tunes Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="heading blue rounded-corner">Christmas Tunes Quiz</h1>
+            <ul class="score-question">
+                <li> Score: <span class="js-score"> 0 </span> </li>
+                <li> Question: <span class="js-questionNum"> </span>/6 </li>
+            </ul>
+        </header>
+        <main class="main">
+            <section class="variable-content-container blue rounded-corner">
+                <div class="instructions rounded-corner">
+                    <p> <br> It's the most wonderful time of the year!  Let's see how wonderful your knowledge of Christmas Tune Trivia is.  Press "START" to proceed through a series of six questions and learn fun facts along the way.</p>
+                    <img src="QuizPhotos/DJSantaClaus.jpeg" alt="DJ Santa Claus" class="dj-santa">
+                </div>
+                <div class="questions rounded-corner"> <br> 
+                </div>
+                <div class='feedback'>
+                    <div class="feedback correct">
+                        <img src="QuizPhotos/HappyTree.jpg" alt="happy Christmas tree" class="feedback-photo">
+                        <p class='rounded-corner correctness'> Correct! </p>
+                    </div>
+                    <div class="feedback incorrect">
+                        <img src="QuizPhotos/SadTree.jpeg" alt="sad Christmas tree" class="feedback-photo">
+                        <p class='rounded-corner correctness'> Incorrect! </p>
+                    </div>
+                    <p class="correct-answer rounded-corner"><span class="js-correct-answer"> The correct answer with explanation. </span></p>
+                </div>
+                <div class='rounded-corner final-view'>
+                    <p class="js-final-score"></p>
+                    <p class="js-final-view"></p>
+                </div>
+            </section>
+            <section class=buttons>
+                <button role="button" class="button js-start-button blue rounded-corner"> START </button>
+                <button role="button" class="button js-next-button blue rounded-corner"> NEXT </button>
+                <button role="button" class="button js-submit-button blue rounded-corner"> SUBMIT </button>
+                <button role="button" class="button js-replay-button blue rounded-corner"> REPLAY </button>
+            </section>
+        </main>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="Wireframes/index.js"></script>
+</body>
+</html>
