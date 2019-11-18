@@ -1,5 +1,7 @@
 'use strict';
 
+
+// Question and answer bank
 const STORE = [
   {
     question: 'In the original "How the Grinch Stole Christmas", voice actor, Thurl Ravenscroft, performed all of the musical numbers even though Boris Karloff narrated the story.  Ravenscroft also provided the voice of what famous TV commercial character?',
@@ -97,37 +99,29 @@ let rank = [
 },
 ];
 
-//initialize variables to store current score and question
+// Initialize variables to hold score and current question number
 let score = 0;
 let questionNum = 0;
 
+// Called when correct answer is submitted
 function updateScore () {
   score++;
   $('.js-score').text(score);
-  console.log('the `updateScore` function ran');
-  console.log(score);
 }
 
+// Called each time a new question is rendered
 function updateQuestionNum () {
-  console.log('`updateQuestionNum` ran');
   questionNum++;
   $('.js-questionNum').text(questionNum);
-  console.log(questionNum);
 }
 
+// Displays elements of the Start View
 function renderChristmasTunesQuiz () {
   $('.questions, .score-question, .feedback, .final-view, .js-next-button, .js-submit-button, .js-replay-button').addClass('js-hide');
   $('.instructions, .js-start-button').removeClass("js-hide");
-  // $('button.js-start-button').click(function () {
-  //   renderQuestionView();
-  // });
-  console.log('`renderChristmasTunesQuiz` ran');
 }
 
-
-// make Q&A's into a form instead
-// form generated based on index in STORE which correlates with questionNum
-
+// Generates the radio buttons and answer selections and inserts them in the form created in the HTML file
 function generateQuestion () {
   let currentQuestionIndex = questionNum - 1;
   let generated = `<legend class="question">${STORE[currentQuestionIndex]['question']}</legend> <br>
@@ -143,28 +137,22 @@ function generateQuestion () {
     <input type="radio" name="christmas-tunes-trivia" id="ans-4" value="3">
     <label for="ans-4" class="ans-4">${STORE[questionNum - 1]['answers'][3]}</label>`;
     $('.questions').prepend(generated);
-  console.log('`generateQuestion` ran');
 }
 
+// Calls the functions that increase current question number by one and generate a new questions; also displays elements of the Question View
 function renderQuestionView () {
   $('.instructions, .feedback, .final-view, .js-start-button, .js-next-button, .js-replay-button').addClass('js-hide');
   $('.score-question, .questions, .js-submit-button').removeClass("js-hide");
   $('.questions').empty();
   updateQuestionNum();
   generateQuestion();
-  // $('button.js-submit-button').click(function () {
-  //   event.preventDefault();
-  //   renderFeedbackView();
-  // });
-  console.log('`renderQuestionView` ran');
 }
 
-// save the clicked value correctly...
-
+// Compares the index of the selected answer to the correct one stored in the "correctIndex" key of each Q&A object
+// Displays the explanation of the correct answer and either a happy or sad tree depending on whether correct answer was selected
 function generateFeedback () {
   let chosen = $('input:checked').val();
   let correct = STORE[questionNum-1]['correctIndex'];
-  console.log(`chosen is ${chosen} and correct is ${correct}`);
   let response = STORE[questionNum-1]['correctExplanation'];
   $('span.js-correct-answer').text(response);
   if (chosen == correct) {
@@ -175,26 +163,17 @@ function generateFeedback () {
   };
 }
 
-
+// Displays elements of the Feedback View and calls the function that determines what feedback to give user
 function renderFeedbackView () {
   $('.instructions, .questions, .final-view, .js-start-button, .js-submit-button, .js-replay-button').addClass('js-hide');
   $('score-question, .feedback, .js-next-button').removeClass("js-hide");
   generateFeedback();
-  // $('button.js-next-button').click(function () {
-  //   if (questionNum <= STORE.length) {
-  //     console.log(`'STORE' length is`);
-  //     renderQuestionView ();
-  //   } else {
-  //     renderFinalView ();
-  //   }
-  // });
-  console.log(`'renderFeedbackView' ran`);
 }
 
+// Depending on final score achieved, displays one of three feedback choices which are stored as objects in "rank" array
 function generateFinalRank () {
   $('.js-final-score').replaceWith(`Your final score is ${score} out of 6 possible correct answers.`);
   let finalRank = 0;
-  console.log(score);
   if (score > 4) {
     finalRank = rank[2]['feedback'];
   } else if (score > 2) {
@@ -203,9 +182,9 @@ function generateFinalRank () {
     finalRank = rank[0]['feedback'];
   };
   $('.js-final-view').replaceWith(finalRank);
-  console.log(`'generateFinalRank' ran`);
 }
 
+// Resets current score and question number to zero and displays them in the heading
 function resetStats () {
   score = 0;
   questionNum= 0;
@@ -213,25 +192,20 @@ function resetStats () {
   $('.questionNum').text(0);
 }
 
+// Starts the quiz over by calling the functions that set score and question number to zero and display the start screen
 function replayQuiz () {
   renderChristmasTunesQuiz();
   resetStats();
-  resetViews();
 }
 
+// Displays the elements of the Final View where feedback is given
 function renderFinalView () {
   $('.instructions, .questions, .feedback, .final-view, .js-start-button, .js-submit-button, .js-next-button').addClass('js-hide');
   $('.score-question, .final-view, .js-replay-button').removeClass("js-hide");
   generateFinalRank();
-  // $('button.js-replay-button').click(function () {
-  //   replayQuiz();
-  // });
 }
 
-function makeQuiz () {
-  renderChristmasTunesQuiz();
-}
-
+// Listen for clicks on the 4 buttons below created in the html file and when clicked, call the specified functions
 function eventHandlers () {
   $('button.js-start-button').click(function () {
     renderQuestionView();
@@ -255,6 +229,12 @@ function eventHandlers () {
   });
 }
 
+// Call the function that displays elements of the Start View
+function makeQuiz () {
+    renderChristmasTunesQuiz();
+  }
+
+// When the browser loads, call the functions that will handle user events and display the Start View
 function initializeApp () {
   makeQuiz();
   eventHandlers();
