@@ -42,7 +42,7 @@ const STORE = [
         '\'Do You Hear What I Hear\' was originally written by a husband and wife as a \'prayer for peace\' during the Cuban Missile Crisis and the \'star as big as a kite\' line was written in reference to a missile.'
   },
   {
-      question: '“Rudolph The Red-Nosed Reindeer,” “Rockin’ Around The Christmas Tree,” and “Holly Jolly Christmas” are three of the most famous Christmas songs.  Which interesting fact about them below is true?',
+      question: 'Select the interesting fact below that is true about these songs: "Rudolph The Red-Nosed Reindeer”, “Rockin’ Around The Christmas Tree”, and “Holly Jolly Christmas”.',
       answers: [
         'All were written explicitly for use in plays',
         'All were made famous by Gene Autry',
@@ -105,7 +105,7 @@ let questionNum = 0;
 // Called when correct answer is submitted
 function updateScore () {
   score++;
-  $('.js-score').text(`${score} `);
+  $('.js-score').text(`${score}      `);
   console.log(`updateScore ran and the score is ${score}`);
 }
 
@@ -124,18 +124,25 @@ function renderChristmasTunesQuiz () {
 // Generates the radio buttons and answer selections and inserts them in the form created in the HTML file
 function generateQuestion () {
   let currentQuestionIndex = questionNum - 1;
-  let generated = `<legend class="question">${STORE[currentQuestionIndex]['question']}</legend> <br>
-    <input type="radio" name="christmas-tunes-trivia" id="ans-1" value="0" checked>
-    <label for="ans-1" class="ans-1">${STORE[questionNum - 1]['answers'][0]}</label>
-    <br>
-    <input type="radio" name="christmas-tunes-trivia" id="ans-2" value="1">
-    <label for="ans-2" class="ans-2">${STORE[questionNum - 1]['answers'][1]}</label>
-    <br>
-    <input type="radio" name="christmas-tunes-trivia" id="ans-3" value="2">
-    <label for="ans-3" class="ans-3">${STORE[questionNum - 1]['answers'][2]}</label>
-    <br>
-    <input type="radio" name="christmas-tunes-trivia" id="ans-4" value="3">
-    <label for="ans-4" class="ans-4">${STORE[questionNum - 1]['answers'][3]}</label>`;
+  let generated = `<fieldset> 
+      <legend class="question">${STORE[currentQuestionIndex]['question']}</legend> 
+      <label for="ans-1" class="ans-1 radio">
+        <input required type="radio" name="christmas-tunes-trivia" id="ans-1" value="0">
+        <span>${STORE[questionNum - 1]['answers'][0]}</span>
+      </label>
+      <label for="ans-2" class="ans-2 radio">
+        <input type="radio" name="christmas-tunes-trivia" id="ans-2" value="1">
+        <span>${STORE[questionNum - 1]['answers'][1]}</span>
+      </label>
+      <label for="ans-3" class="ans-3 radio">
+        <input type="radio" name="christmas-tunes-trivia" id="ans-3" value="2">
+        <span>${STORE[questionNum - 1]['answers'][2]}</span>
+      </label>
+      <label for="ans-4" class="ans-4 radio">
+        <input type="radio" name="christmas-tunes-trivia" id="ans-4" value="3">
+        <span>${STORE[questionNum - 1]['answers'][3]}</span>
+      </label>
+    </fieldset>`;
     $('.questions').prepend(generated);
 }
 
@@ -214,7 +221,12 @@ function eventHandlers () {
 
   $('button.js-submit-button').click(function () {
     event.preventDefault();
-    renderFeedbackView();
+    var isChecked = $('input').is(':checked');
+    if (isChecked) {
+      renderFeedbackView();
+    } else {
+      alert('Please select one of the four possible answers before submitting.')
+    };
   });
 
   $('button.js-next-button').click(function () {

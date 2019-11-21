@@ -44,6 +44,17 @@ body {
     align-items: center;
 }
 
+.button:hover {
+    color: darkblue;
+    background-color: whitesmoke;
+}
+
+.button:hover,
+label:hover,
+input:hover {
+    cursor: pointer;
+}
+
 .rounded-corner {
     border-radius: 25px;
 }
@@ -99,6 +110,18 @@ body {
     width: 80%;
     background-color: whitesmoke;
     padding: 15px 10px;
+}
+
+fieldset {
+    display: flex;
+}
+
+.radio {
+    margin-top: 4px;
+}
+
+label:hover {
+    background-color: #CEB138;
 }
 
 /* feedback view */
