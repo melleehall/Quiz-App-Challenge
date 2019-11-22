@@ -115,6 +115,7 @@ input:hover {
 
 fieldset {
     display: flex;
+    flex-direction: column;
 }
 
 .radio {
