@@ -126,6 +126,7 @@ function generateQuestion () {
   let currentQuestionIndex = questionNum - 1;
   let generated = `<fieldset> 
       <legend class="question">${STORE[currentQuestionIndex]['question']}</legend> 
+      <div class="radio-buttons">
       <label class="ans-1 radio">
         <input required type="radio" name="christmas-tunes-trivia" id="ans-1" value="0">
         <span>${STORE[questionNum - 1]['answers'][0]}</span>
@@ -142,6 +143,7 @@ function generateQuestion () {
         <input type="radio" name="christmas-tunes-trivia" id="ans-4" value="3">
         <span>${STORE[questionNum - 1]['answers'][3]}</span>
       </label>
+      </div>
     </fieldset>`;
     $('.questions').prepend(generated);
 }
