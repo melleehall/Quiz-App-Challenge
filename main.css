@@ -117,11 +117,6 @@ fieldset {
     display: flex;
 }
 
-label {
-    display: flex;
-    flex-direction: row;
-}
-
 .radio {
     margin-top: 4px;
 }
