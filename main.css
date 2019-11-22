@@ -109,21 +109,29 @@ input:hover {
 .questions {
     height: 75%;
     width: 80%;
-    background-color: whitesmoke;
     padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.q-and-a {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    padding: 15px 15px 0px 15px;
+    height: 450px;
+    width: 300px;
+    border: 10px solid darkblue;
 }
 
 fieldset {
-    display: flex;
-}
-
-.radio-buttons {
     display: flex;
     flex-direction: column;
 }
 
 .radio {
-    margin-top: 4px;
+    margin-top: 6px;
 }
 
 label:hover {
@@ -146,7 +154,6 @@ label:hover {
 }
 
 .correct-answer {
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -193,7 +200,7 @@ label:hover {
 
 /* Tablets, Laptops, Desktops */
 @media screen and (min-width: 621px) {
-    .main, .variable-content-container {
+    .main, .variable-content-container, .q-and-a {
         width: 80%;
     }
     .dj-santa {

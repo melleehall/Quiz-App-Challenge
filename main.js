@@ -124,11 +124,11 @@ function renderChristmasTunesQuiz () {
 // Generates the radio buttons and answer selections and inserts them in the form created in the HTML file
 function generateQuestion () {
   let currentQuestionIndex = questionNum - 1;
-  let generated = `<fieldset> 
+  let generated = `<div class="q-and-a rounded-corner">
+      <fieldset> 
       <legend class="question">${STORE[currentQuestionIndex]['question']}</legend> 
-      <div class="radio-buttons">
       <label class="ans-1 radio">
-        <input required type="radio" name="christmas-tunes-trivia" id="ans-1" value="0">
+        <input type="radio" name="christmas-tunes-trivia" id="ans-1" value="0" required="required">
         <span>${STORE[questionNum - 1]['answers'][0]}</span>
       </label>
       <label class="ans-2 radio">
@@ -143,14 +143,14 @@ function generateQuestion () {
         <input type="radio" name="christmas-tunes-trivia" id="ans-4" value="3">
         <span>${STORE[questionNum - 1]['answers'][3]}</span>
       </label>
-      </div>
-    </fieldset>`;
+    </fieldset> </div>`;
     $('.questions').prepend(generated);
+    $(`<button type="submit" class="button js-submit-button blue rounded-corner"> SUBMIT </button > `).appendTo('.questions');
 }
 
 // Calls the functions that increase current question number by one and generate a new questions; also displays elements of the Question View
 function renderQuestionView () {
-  $('.instructions, .feedback, .final-view, .js-start-button, .js-next-button, .js-replay-button').addClass('js-hide');
+  $('.variable-content-container, .instructions, .feedback, .final-view, .js-start-button, .js-next-button, .js-replay-button').addClass('js-hide');
   $('.score-question, .questions, .js-submit-button').removeClass("js-hide");
   $('.questions').empty();
   updateQuestionNum();
@@ -175,7 +175,7 @@ function generateFeedback () {
 // Displays elements of the Feedback View and calls the function that determines what feedback to give user
 function renderFeedbackView () {
   $('.instructions, .questions, .final-view, .js-start-button, .js-submit-button, .js-replay-button').addClass('js-hide');
-  $('score-question, .feedback, .js-next-button').removeClass("js-hide");
+  $('.variable-content-container, score-question, .feedback, .js-next-button').removeClass("js-hide");
   generateFeedback();
 }
 
@@ -221,14 +221,16 @@ function eventHandlers () {
     renderQuestionView();
   });
 
-  $('button.js-submit-button').click(function () {
+  $('form').on('submit', function () {
     event.preventDefault();
-    var isChecked = $('input').is(':checked');
-    if (isChecked) {
-      renderFeedbackView();
-    } else {
-      alert('Please select one of the four possible answers before submitting.')
-    };
+    renderFeedbackView();
+
+    // var isChecked = $('input').is(':checked');
+    // if (isChecked) {
+    //   renderFeedbackView();
+    // } else {
+    //   alert('Please select one of the four possible answers before submitting.')
+    // };
   });
 
   $('button.js-next-button').click(function () {
