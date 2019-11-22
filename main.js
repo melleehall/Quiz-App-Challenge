@@ -126,19 +126,19 @@ function generateQuestion () {
   let currentQuestionIndex = questionNum - 1;
   let generated = `<fieldset> 
       <legend class="question">${STORE[currentQuestionIndex]['question']}</legend> 
-      <label for="ans-1" class="ans-1 radio">
+      <label class="ans-1 radio" aria-checked="false">
         <input required type="radio" name="christmas-tunes-trivia" id="ans-1" value="0">
         <span>${STORE[questionNum - 1]['answers'][0]}</span>
       </label>
-      <label for="ans-2" class="ans-2 radio">
+      <label class="ans-2 radio" aria-checked="false">
         <input type="radio" name="christmas-tunes-trivia" id="ans-2" value="1">
         <span>${STORE[questionNum - 1]['answers'][1]}</span>
       </label>
-      <label for="ans-3" class="ans-3 radio">
+      <label class="ans-3 radio" aria-checked="false">
         <input type="radio" name="christmas-tunes-trivia" id="ans-3" value="2">
         <span>${STORE[questionNum - 1]['answers'][2]}</span>
       </label>
-      <label for="ans-4" class="ans-4 radio">
+      <label class="ans-4 radio" aria-checked="false">
         <input type="radio" name="christmas-tunes-trivia" id="ans-4" value="3">
         <span>${STORE[questionNum - 1]['answers'][3]}</span>
       </label>
