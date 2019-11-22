@@ -113,9 +113,13 @@ input:hover {
     padding: 15px 10px;
 }
 
-fieldset, label {
+fieldset {
     display: flex;
-    flex-direction: column;
+}
+
+label {
+    display: flex;
+    flex-direction: row;
 }
 
 .radio {
